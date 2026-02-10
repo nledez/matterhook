@@ -5,7 +5,9 @@ matterhook
 import os
 import sys
 
-from pkg_resources import get_distribution, parse_version
+from importlib.metadata import version as get_version
+from packaging.version import Version
+
 from setuptools import find_packages, setup
 from setuptools.command.test import test as TestCommand
 
@@ -36,7 +38,7 @@ class PyTest(TestCommand):
         TestCommand.finalize_options(self)
 
         # https://bitbucket.org/pypa/setuptools/commits/cf565b6
-        if get_distribution("setuptools").parsed_version < parse_version("18.4"):
+        if Version(get_version("setuptools")) < Version("18.4"):
             self.test_args = []
             self.test_suite = True
 
