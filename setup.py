@@ -76,6 +76,6 @@ setup(
     platforms="any",
     tests_require=["pytest"],
     url="https://github.com/numberly/matterhook",
-    version="0.2",
+    version="0.3",
     zip_safe=True,
 )
